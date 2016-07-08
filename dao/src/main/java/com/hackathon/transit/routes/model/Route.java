@@ -10,7 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "routes")
-public class Route implements Serializable{
+public class Route implements Serializable {
 
     private Integer routeId;
     private String agencyId;
