@@ -12,6 +12,7 @@
 
     <modules>
         <module>service</module>
+        <module>war</module>
     </modules>
 
     <build>
