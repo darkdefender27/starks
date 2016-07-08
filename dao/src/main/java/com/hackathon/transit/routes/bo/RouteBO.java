@@ -5,7 +5,7 @@ import com.hackathon.transit.routes.model.Route;
 /**
  * Created by shubhamutwal on 09/07/16.
  */
-public interface RouteBo {
+public interface RouteBO {
 
     void save(Route route);
     void update(Route route);
