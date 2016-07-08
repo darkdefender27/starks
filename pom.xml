@@ -13,6 +13,7 @@
     <modules>
         <module>service</module>
         <module>dao</module>
+        <module>war</module>
     </modules>
 
     <build>
