@@ -1,6 +1,6 @@
 package com.hackathon.transit.common;
 
-import com.hackathon.transit.routes.bo.RouteBo;
+import com.hackathon.transit.routes.bo.RouteBO;
 import com.hackathon.transit.routes.model.Route;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -14,7 +14,7 @@ public class App {
         ApplicationContext appContext =
                 new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
 
-        RouteBo routeBo = (RouteBo) appContext.getBean("routeBo");
+        RouteBO routeBo = (RouteBO) appContext.getBean("routeBo");
 
         Route route = routeBo.findByRouteId(703);
         System.out.println("Found route: " + route.toString());

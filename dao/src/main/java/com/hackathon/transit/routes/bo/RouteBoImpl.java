@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service("routeBo")
-public class RouteBoImpl implements RouteBo {
+public class RouteBOImpl implements RouteBO {
 
     @Autowired
     RouteDao routeDao;
