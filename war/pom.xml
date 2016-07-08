@@ -35,6 +35,10 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!--<dependency>
+            <groupId>com.tw.hackathon</groupId>
+            <artifactId>dao</artifactId>
+        </dependency>-->
     </dependencies>
 
 </project>
