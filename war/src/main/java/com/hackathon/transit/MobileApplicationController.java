@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by SAWAI on 7/9/2016.
@@ -29,6 +30,23 @@ public class MobileApplicationController {
         List<Stop> busStopsList = createBusStops();
         return  ServiceUtil.toJson(busStopsList);
     }
+
+    @RequestMapping(value = "/pune/bus/{busId}/density", method = RequestMethod.GET)
+    @ResponseBody
+    public Double getBusDensity() {
+        Random  random = new Random(System.currentTimeMillis());
+        return random.nextDouble()% 100;
+
+    }
+
+    @RequestMapping(value = "/pune/available/routes", method = RequestMethod.GET)
+    @ResponseBody
+    public String getAvailableRoutes() {
+        //  List<Stop> busStopsList = busStops.getBusStops();
+        List<Stop> busStopsList = createBusStops();
+        return  ServiceUtil.toJson(busStopsList);
+    }
+
 
     private List<Stop> createBusStops() {
         List<Stop> stops = new ArrayList<Stop>();
