@@ -30,4 +30,17 @@ public class StopTimeDaoImpl extends CustomHibernateDaoSupport implements StopTi
         );
         return (StopTime) list.get(0);
     }
+
+
+    public List findByStopId(Integer stopId) {
+        /*List list = getHibernateTemplate().find(
+                "from Stop where stopId = ?",stopId
+        );
+        return (Stop)list.get(0);*/
+        List list = getHibernateTemplate().find(
+                "from StopTime where stopId = ?", stopId
+        );
+        return list;
+    }
+
 }

@@ -5,6 +5,8 @@ import com.hackathon.transit.stops.model.Stop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by shubhamutwal on 09/07/16.
  */
@@ -32,5 +34,9 @@ public class StopBoImpl implements StopBo {
 
     public Stop findByStopId(Integer stopId) {
         return stopDao.findByStopId(stopId);
+    }
+
+    public List<Stop> findBySrcAndDestLatLong(Double sourceLat, Double sourceLon, Double destLat, Double destLon) {
+        return stopDao.findBySrcAndDestLatLong(sourceLat, sourceLon, destLat, destLon);
     }
 }

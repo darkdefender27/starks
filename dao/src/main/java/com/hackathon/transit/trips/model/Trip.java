@@ -9,7 +9,10 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 
 @Entity
-@Table(name = "trips")
+@Table(name = "trips",
+        indexes = {
+                @Index(columnList = "tripId", name = "xyzw")
+        })
 public class Trip {
 
     private Integer routeId;

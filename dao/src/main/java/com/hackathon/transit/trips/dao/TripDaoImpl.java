@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 /**
  * Created by shubhamutwal on 09/07/16.
  */
@@ -24,10 +25,10 @@ public class TripDaoImpl extends CustomHibernateDaoSupport implements TripDao {
         getHibernateTemplate().delete(trip);
     }
 
-    public Trip findByTripId(Integer tripId) {
+    public List findByTripId(Integer tripId) {
         List list = getHibernateTemplate().find(
                 "from Trip where tripId = ?", tripId
         );
-        return (Trip)list.get(0);
+        return list;
     }
 }

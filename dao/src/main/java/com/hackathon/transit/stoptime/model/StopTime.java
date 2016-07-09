@@ -9,7 +9,10 @@ import static javax.persistence.GenerationType.IDENTITY;
  * Created by shubhamutwal on 09/07/16.
  */
 @Entity
-@Table(name = "stop_times")
+@Table(name = "stop_times",
+        indexes = {
+                @Index(columnList = "stopId", name = "abcd")
+        })
 public class StopTime implements Serializable {
 
     private Integer tripId;
