@@ -1,6 +1,5 @@
 package com.hackathon.transit.stoptime.dao;
 
-import com.hackathon.transit.routes.model.Route;
 import com.hackathon.transit.stoptime.model.StopTime;
 import com.hackathon.transit.util.CustomHibernateDaoSupport;
 import org.springframework.stereotype.Repository;

@@ -19,5 +19,7 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
             base-package="com.hackathon.transit.trips" />
     <context:component-scan
             base-package="com.hackathon.transit.stoptime" />
+    <context:component-scan
+            base-package="com.hackathon.transit.agency" />
 
 </beans>
