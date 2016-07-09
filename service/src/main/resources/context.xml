@@ -10,18 +10,23 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<context:component-scan base-package="com.hackathon.transit" />
+<!--
+    <import resource="classpath:spring/config/BeanLocations.xml" />
+-->
+    <context:component-scan base-package="com.hackathon.transit" />
 
-	<mvc:annotation-driven />
+    <mvc:annotation-driven />
 
 
-    <context:property-placeholder location="classpath:aws.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:aws.properties" order = "1"/>
 
-	<bean id="sqs" class="com.hackathon.transit.service.SQSImpl">
+    <bean id="sqs" class="com.hackathon.transit.service.SQSImpl">
         <constructor-arg index="0" value="${accessKey}"/>
         <constructor-arg index="1" value="${secretKey}"/>
         <constructor-arg index="2" value="${aws.sqs.endpoint}"/>
     </bean>
+
+    <bean id="busStops" class="com.hackathon.transit.service.dao.BusStopsImpl" />
 
 </beans>
 

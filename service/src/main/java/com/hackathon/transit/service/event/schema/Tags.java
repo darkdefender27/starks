@@ -4,16 +4,25 @@ package com.hackathon.transit.service.event.schema;
  * Created by SAWAI on 7/9/2016.
  */
 public class Tags {
-    private String vehicleId;
+    private String bus_id;
     private String sensor;
-    private String sensorType;
+    private String sensor_type;
+    private GPSPosition gpsPosition;
 
-    public String getVehicleId() {
-        return vehicleId;
+    public GPSPosition getGpsPosition() {
+        return gpsPosition;
     }
 
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setGpsPosition(GPSPosition gpsPosition) {
+        this.gpsPosition = gpsPosition;
+    }
+
+    public String getBus_id() {
+        return bus_id;
+    }
+
+    public void setBus_id(String bus_id) {
+        this.bus_id = bus_id;
     }
 
     public String getSensor() {
@@ -24,11 +33,11 @@ public class Tags {
         this.sensor = sensor;
     }
 
-    public String getSensorType() {
-        return sensorType;
+    public String getSensor_type() {
+        return sensor_type;
     }
 
-    public void setSensorType(String sensorType) {
-        this.sensorType = sensorType;
+    public void setSensor_type(String sensor_type) {
+        this.sensor_type = sensor_type;
     }
 }

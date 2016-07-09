@@ -31,4 +31,9 @@ public class StopDaoImpl extends CustomHibernateDaoSupport implements StopDao {
         );
         return (Stop)list.get(0);
     }
+
+    public List<Stop> getBusStops() {
+        List<Stop> list = getHibernateTemplate().find("from stops");
+        return list;
+    }
 }

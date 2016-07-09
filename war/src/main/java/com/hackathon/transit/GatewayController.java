@@ -2,7 +2,7 @@ package com.hackathon.transit;
 
 import com.hackathon.transit.constants.AppConstants;
 import com.hackathon.transit.service.SQS;
-import com.hackathon.transit.service.event.schema.VehicleDensityEvent;
+import com.hackathon.transit.service.event.schema.Event;
 import com.hackathon.transit.translator.EventTranslator;
 import com.hackathon.transit.util.AppUtil;
 import com.hackathon.transit.util.MovementType;
@@ -25,12 +25,12 @@ public class GatewayController {
 
     @ResponseBody
     @RequestMapping(value = "movement/{vehicleId}/{movementId}", method = RequestMethod.GET)
-    public String getMovie(@PathVariable("vehicleId") String vehicleId,
-                           @PathVariable("movementId") int movementId) {
+    public String updateBusDensity(@PathVariable("vehicleId") String vehicleId,
+                                   @PathVariable("movementId") int movementId) {
         MovementType movementType = AppUtil.resolveMovement(movementId);
         String string = vehicleId + "---" + movementType.name();
-        VehicleDensityEvent vehicleDensityEvent = EventTranslator.getVehicleDensityEvent(movementType, vehicleId);
-        sqs.publishMessage(AppConstants.TRANSIT_DATA_QUEUE_NAME, vehicleDensityEvent);
+        Event event = EventTranslator.getVehicleDensityEvent(movementType, vehicleId);
+        sqs.publishMessage(AppConstants.TRANSIT_DATA_QUEUE_NAME, event);
         System.out.println(string);
         return string;
     }
@@ -38,13 +38,13 @@ public class GatewayController {
 
     @RequestMapping(value = "/position/{vehicleId}/{latitude}/{longitude}", method = RequestMethod.GET)
     @ResponseBody
-    public String getDefaultMovie(@PathVariable("vehicleId") String vehicleId,
-                                  @PathVariable("latitude") String latitude,
-                                  @PathVariable("longitude") String longitude) {
+    public String updateBusPosition(@PathVariable("vehicleId") String vehicleId,
+                                    @PathVariable("latitude") String latitude,
+                                    @PathVariable("longitude") String longitude) {
         String string = vehicleId + "---" + latitude + "--" + longitude;
-        System.out.println(string);
+        Event event = EventTranslator.getVehiclePositionEvent(latitude, longitude,vehicleId);
+        sqs.publishMessage(AppConstants.TRANSIT_DATA_QUEUE_NAME, event);
         return string;
-
     }
 
 

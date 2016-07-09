@@ -3,7 +3,7 @@ package com.hackathon.transit.service.event.schema;
 /**
  * Created by SAWAI on 7/9/2016.
  */
-public class VehicleDensityEvent {
+public class Event {
     private String metric;
     private long timestamp;
     private int value;
