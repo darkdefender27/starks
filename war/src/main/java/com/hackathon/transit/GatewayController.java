@@ -2,6 +2,8 @@ package com.hackathon.transit;
 
 import com.hackathon.transit.constants.AppConstants;
 import com.hackathon.transit.service.SQS;
+import com.hackathon.transit.service.event.schema.VehicleDensityEvent;
+import com.hackathon.transit.translator.EventTranslator;
 import com.hackathon.transit.util.AppUtil;
 import com.hackathon.transit.util.MovementType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,8 @@ public class GatewayController {
                            @PathVariable("movementId") int movementId) {
         MovementType movementType = AppUtil.resolveMovement(movementId);
         String string = vehicleId + "---" + movementType.name();
-        sqs.publishMessage(AppConstants.TRANSIT_DATA_QUEUE_NAME, string);
+        VehicleDensityEvent vehicleDensityEvent = EventTranslator.getVehicleDensityEvent(movementType, vehicleId);
+        sqs.publishMessage(AppConstants.TRANSIT_DATA_QUEUE_NAME, vehicleDensityEvent);
         System.out.println(string);
         return string;
     }

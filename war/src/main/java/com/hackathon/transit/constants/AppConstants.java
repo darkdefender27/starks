@@ -5,5 +5,6 @@ package com.hackathon.transit.constants;
  */
 public class AppConstants {
 
+    public static final String APP_METRIC = "twhack";
     public static String TRANSIT_DATA_QUEUE_NAME = "transit_data_queue";
 }
