@@ -12,6 +12,7 @@
 
     <modules>
         <module>dao</module>
+        <module>service</module>
         <module>war</module>
     </modules>
 
