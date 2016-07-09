@@ -13,5 +13,11 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
     <!-- Auto scan the components -->
     <context:component-scan
             base-package="com.hackathon.transit.routes" />
+    <context:component-scan
+            base-package="com.hackathon.transit.stops" />
+    <context:component-scan
+            base-package="com.hackathon.transit.trips" />
+    <context:component-scan
+            base-package="com.hackathon.transit.stoptime" />
 
 </beans>
