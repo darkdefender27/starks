@@ -1,13 +1,15 @@
 package com.hackathon.transit;
 
 import com.hackathon.transit.service.dao.BusStops;
+import com.hackathon.transit.service.event.schema.GPSPosition;
+import com.hackathon.transit.service.route.RouteService;
+import com.hackathon.transit.service.route.schema.Route;
+import com.hackathon.transit.service.route.schema.RoutedRequest;
 import com.hackathon.transit.service.util.ServiceUtil;
 import com.hackathon.transit.stops.model.Stop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,9 @@ public class MobileApplicationController {
 
     @Autowired
     private BusStops busStops;
+
+    @Autowired
+    RouteService routeService;
 
     @RequestMapping(value = "/pune/bus/stops", method = RequestMethod.GET)
     @ResponseBody
@@ -46,6 +51,24 @@ public class MobileApplicationController {
         List<Stop> busStopsList = createBusStops();
         return  ServiceUtil.toJson(busStopsList);
     }
+
+
+    @RequestMapping(value = "/available/routes/user/{userId}", method = RequestMethod.GET)
+    @ResponseBody
+    public String getAvailableRoutesForUser(@PathVariable("userId") String userId,
+    @RequestParam("latitude") String latitude,
+    @RequestParam("longitude") String longitude,
+    @RequestParam("destination") String destination,
+    @RequestParam("noOfPax") int noOfPax) {
+        RoutedRequest routedRequest = new RoutedRequest();
+        GPSPosition destinationCordinates = routeService.getGPSCordinatesForDestination(destination);
+        routedRequest.setDestination(destinationCordinates);
+        routedRequest.setNoOfPax(noOfPax);
+        routedRequest.setUserPosition(new GPSPosition(latitude,longitude));
+        List<Route> route = routeService.getRoute(routedRequest);
+        return  ServiceUtil.toJson(route);
+    }
+
 
 
     private List<Stop> createBusStops() {

@@ -24,7 +24,7 @@ public class GatewayController {
     SQS sqs;
 
     @ResponseBody
-    @RequestMapping(value = "movement/{vehicleId}/{movementId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/movement/{vehicleId}/{movementId}", method = RequestMethod.GET)
     public String updateBusDensity(@PathVariable("vehicleId") String vehicleId,
                                    @PathVariable("movementId") int movementId) {
         MovementType movementType = AppUtil.resolveMovement(movementId);

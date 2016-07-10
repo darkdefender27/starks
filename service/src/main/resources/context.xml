@@ -27,7 +27,7 @@
     </bean>
 
     <bean id="busStops" class="com.hackathon.transit.service.dao.BusStopsImpl" />
-
+    <bean id="routeService" class="com.hackathon.transit.service.route.RouteServiceImpl" />
 </beans>
 
 
