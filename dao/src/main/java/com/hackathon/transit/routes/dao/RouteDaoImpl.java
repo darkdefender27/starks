@@ -24,10 +24,10 @@ public class RouteDaoImpl extends CustomHibernateDaoSupport implements RouteDao 
         getHibernateTemplate().delete(route);
     }
 
-    public Route findByRouteId(Integer routeId) {
+    public List findByRouteId(Integer routeId) {
         List list = getHibernateTemplate().find(
                 "from Route where routeId = ?",routeId
         );
-        return (Route)list.get(0);
+        return list;
     }
 }

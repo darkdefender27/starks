@@ -5,6 +5,8 @@ import com.hackathon.transit.trips.model.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by shubhamutwal on 09/07/16.
  */
@@ -30,7 +32,7 @@ public class TripBoImpl implements TripBo {
         tripDao.delete(trip);
     }
 
-    public Trip findByTripId(Integer tripId) {
+    public List findByTripId(Integer tripId) {
         return tripDao.findByTripId(tripId);
     }
 }

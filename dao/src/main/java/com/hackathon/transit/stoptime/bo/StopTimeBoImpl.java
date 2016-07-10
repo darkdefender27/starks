@@ -5,6 +5,8 @@ import com.hackathon.transit.stoptime.model.StopTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by shubhamutwal on 09/07/16.
  */
@@ -29,4 +31,9 @@ public class StopTimeBoImpl implements StopTimeBo {
     public StopTime findByTripId(Integer tripId) {
         return stopTimeDao.findByTripId(tripId);
     }
+
+    public List findByStopId(Integer stopId) {
+        return stopTimeDao.findByStopId(stopId);
+    }
 }
+

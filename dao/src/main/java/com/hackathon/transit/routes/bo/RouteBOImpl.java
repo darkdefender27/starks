@@ -5,6 +5,8 @@ import com.hackathon.transit.routes.model.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by shubhamutwal on 09/07/16.
  */
@@ -31,7 +33,7 @@ public class RouteBOImpl implements RouteBO {
         routeDao.delete(route);
     }
 
-    public Route findByRouteId(Integer routeId) {
+    public List findByRouteId(Integer routeId) {
         return routeDao.findByRouteId(routeId);
     }
 }

@@ -31,6 +31,7 @@
                 <value>com.hackathon.transit.stops.model.Stop</value>
                 <value>com.hackathon.transit.trips.model.Trip</value>
                 <value>com.hackathon.transit.stoptime.model.StopTime</value>
+                <value>com.hackathon.transit.agency.model.Agency</value>
             </list>
         </property>
     </bean>

@@ -1,6 +1,5 @@
 package com.hackathon.transit.stoptime.dao;
 
-import com.hackathon.transit.routes.model.Route;
 import com.hackathon.transit.stoptime.model.StopTime;
 import com.hackathon.transit.util.CustomHibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -31,4 +30,17 @@ public class StopTimeDaoImpl extends CustomHibernateDaoSupport implements StopTi
         );
         return (StopTime) list.get(0);
     }
+
+
+    public List findByStopId(Integer stopId) {
+        /*List list = getHibernateTemplate().find(
+                "from Stop where stopId = ?",stopId
+        );
+        return (Stop)list.get(0);*/
+        List list = getHibernateTemplate().find(
+                "from StopTime where stopId = ?", stopId
+        );
+        return list;
+    }
+
 }

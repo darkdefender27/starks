@@ -12,6 +12,5 @@ public interface StopDao {
     void update(Stop stop);
     void delete(Stop stop);
     Stop findByStopId(Integer stopId);
-
-    List<Stop> getBusStops();
+    List<Stop> findBySrcAndDestLatLong(Double sourceLat, Double sourceLon, Double destLat, Double destLon);
 }
