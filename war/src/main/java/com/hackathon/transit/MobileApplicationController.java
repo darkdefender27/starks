@@ -31,8 +31,8 @@ public class MobileApplicationController {
     @RequestMapping(value = "/pune/bus/stops", method = RequestMethod.GET)
     @ResponseBody
     public String getAvailableStops() {
-      //  List<Stop> busStopsList = busStops.getBusStops();
-        List<Stop> busStopsList = createBusStops();
+       List<Stop> busStopsList = busStops.getBusStops();
+      //  List<Stop> busStopsList = createBusStops();
         return  ServiceUtil.toJson(busStopsList);
     }
 

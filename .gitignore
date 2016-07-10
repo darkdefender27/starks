@@ -91,6 +91,8 @@ target
 .builds
 *.dotCover
 
+aws.properties
+
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
 
@@ -219,3 +221,9 @@ zone.js
 require.js
 reflect-metadata
 rxjs
+/service/src/main/resources/aws.properties
+service/src/test/
+war/src/test/
+/service/target/
+/war/target/
+/dao/target/
