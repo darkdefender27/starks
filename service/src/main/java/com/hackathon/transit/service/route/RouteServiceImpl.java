@@ -27,15 +27,26 @@ public class RouteServiceImpl implements RouteService {
     }
 
     public GPSPosition getGPSCordinatesForDestination(String destination) {
-        return new GPSPosition("1234.12", "456.72");
+        return new GPSPosition("18.5814977204538", "73.8155293361879");
     }
 
     private Route createRoute() {
         Route route = new Route();
         List<VehiclesRoute> vehiclesRoutes = new ArrayList<VehiclesRoute>();
-        vehiclesRoutes.add(createVehicleRoute(BUS));
-        vehiclesRoutes.add(createVehicleRoute(WALK));
-        vehiclesRoutes.add(createVehicleRoute(AUTO));
+        VehiclesRoute vehicleRoute1 = createVehicleRoute(AUTO);
+        vehicleRoute1.setTraveltime(2);
+        vehicleRoute1.setTravelCost(20d);
+
+        VehiclesRoute vehicleRoute2 = createVehicleRoute(BUS);
+        vehicleRoute2.setTraveltime(50);
+        vehicleRoute2.setTravelCost(26d);
+
+        VehiclesRoute vehicleRoute3 = createVehicleRoute(AUTO);
+        vehicleRoute3.setTraveltime(6);
+        vehicleRoute3.setTravelCost(35d);
+        vehiclesRoutes.add(vehicleRoute1);
+        vehiclesRoutes.add(vehicleRoute2);
+        vehiclesRoutes.add(vehicleRoute3);
         route.setVehiclesRouteList(vehiclesRoutes);
         return route;
     }
@@ -49,11 +60,12 @@ public class RouteServiceImpl implements RouteService {
         if(!vehicleType.equals(WALK)) {
             vehiclesRoute.setTravelCost(100d);
         }
+
         vehiclesRoute.setTraveltime(25);
         return vehiclesRoute;
     }
 
     public List<String> getStopNames() {
-        return Arrays.asList("Stop 1","Stop 2","Stop 3","Stop4");
+        return Arrays.asList("Rajgurunagar Vidyalaya","Bharat English School");
     }
 }

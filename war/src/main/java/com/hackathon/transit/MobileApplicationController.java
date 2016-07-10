@@ -31,8 +31,8 @@ public class MobileApplicationController {
     @RequestMapping(value = "/pune/bus/stops", method = RequestMethod.GET)
     @ResponseBody
     public String getAvailableStops() {
-       List<Stop> busStopsList = busStops.getBusStops();
-      //  List<Stop> busStopsList = createBusStops();
+      // List<Stop> busStopsList = busStops.getBusStops();
+       List<Stop> busStopsList = createBusStops();
         return  ServiceUtil.toJson(busStopsList);
     }
 
@@ -74,11 +74,9 @@ public class MobileApplicationController {
     private List<Stop> createBusStops() {
         List<Stop> stops = new ArrayList<Stop>();
         int i = 1;
-        stops.add(getStop(i++));
-        stops.add(getStop(i++));
-        stops.add(getStop(i++));
-        stops.add(getStop(i++));
-        stops.add(getStop(i++));
+        stops.add(new Stop(2658, "Rajgurunagar Vidyalaya", "", 18.8508176350157,10d, "3140", "07:04:45" ));
+        stops.add(new Stop(2236, "Bharat English School", "",18.5763823568169,73.7792283193861, "3140", "17:51:56" ));
+        stops.add(new Stop(4879, "Krishna Bazar", "",18.5814977204538,73.8155293361879, "3140", "19:02:17" ));
         return stops;
     }
 
@@ -88,7 +86,7 @@ public class MobileApplicationController {
         stop.setStopId(101  + i);
         stop.setStopLat(112121.111);
         stop.setStopLon(1212.11);
-        stop.setStopName("stop name " + i);
+        stop.setStopName("Rajgurunagar Vidyalaya");
         stop.setStopUrl("some url " + i);
         stop.setZoneId("Zone id");
         return stop;

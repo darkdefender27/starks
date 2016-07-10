@@ -23,6 +23,8 @@ public class Stop implements Serializable {
     public Stop() {
     }
 
+
+
     public Stop(Integer stopId, String stopName, String stopDesc, Double stopLat,
                 Double stopLon, String zoneId, String stopUrl) {
         this.stopId = stopId;
